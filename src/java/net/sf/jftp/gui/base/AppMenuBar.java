@@ -76,23 +76,20 @@ public class AppMenuBar extends JMenuBar implements ActionListener
     JMenu lf = new JMenu("Switch Look & Feel to");
     JMenu background = new JMenu("Desktop Background");
     JMenu ftp = new JMenu(" FTP");
-    JMenu smb = new JMenu(" SMB");
-    JMenu sftp = new JMenu(" SFTP");
-    JMenu security = new JMenu("Security");
-    JMenu experimental = new JMenu("Experimental Features");
-    JMenu rss = new JMenu("RSS Feed");
-    JMenu cnn = new JMenu("CNN");
+   // JMenu smb = new JMenu(" SMB");
+   // JMenu sftp = new JMenu(" SFTP");
+    //JMenu security = new JMenu("Security");
+   // JMenu experimental = new JMenu("Experimental Features");
+   // JMenu rss = new JMenu("RSS Feed");
+    //JMenu cnn = new JMenu("CNN");
     JMenuItem localFtpCon = new JMenuItem("Open FTP Connection in Local Tab...");
-    JMenuItem localSftpCon = new JMenuItem("Open SFTP Connection in Local Tab...");
-    JMenuItem localSmbCon = new JMenuItem("Open SMB/LAN Connection in Local Tab...");
-    JMenuItem localNfsCon = new JMenuItem("Open NFS Connection in Local Tab...");
-    JMenuItem localWebdavCon = new JMenuItem("Open WebDAV Connection in Local Tab... (ALPHA)");
+//    JMenuItem localSftpCon = new JMenuItem("Open SFTP Connection in Local Tab...");
+//    JMenuItem localSmbCon = new JMenuItem("Open SMB/LAN Connection in Local Tab...");
+//    JMenuItem localNfsCon = new JMenuItem("Open NFS Connection in Local Tab...");
+//    JMenuItem localWebdavCon = new JMenuItem("Open WebDAV Connection in Local Tab... (ALPHA)");
     JMenuItem closeLocalCon = new JMenuItem("Close Active Connection in Local Tab");
     JMenuItem ftpCon = new JMenuItem("Connect to FTP Server...");
-    JMenuItem sftpCon = new JMenuItem("Connect to SFTP Server...");
-    JMenuItem smbCon = new JMenuItem("Connect to SMB Server / Browse LAN...");
-    JMenuItem nfsCon = new JMenuItem("Connect to NFS Server...");
-    JMenuItem webdavCon = new JMenuItem("Connect to WebDAV Server... (ALPHA)");
+
     JMenuItem close = new JMenuItem("Disconnect and Connect to Filesystem");
     JMenuItem exit = new JMenuItem("Exit");
     JMenuItem readme = new JMenuItem("Show Readme...");
@@ -170,9 +167,9 @@ public class AppMenuBar extends JMenuBar implements ActionListener
         todo.addActionListener(this);
         resuming.addActionListener(this);
         ask.addActionListener(this);
-        smbCon.addActionListener(this);
+        //smbCon.addActionListener(this);
         clear.addActionListener(this);
-        sftpCon.addActionListener(this);
+       // sftpCon.addActionListener(this);
         fadeMenu.addActionListener(this);
         askToDelete.addActionListener(this);
         smbThreads.addActionListener(this);
@@ -182,20 +179,17 @@ public class AppMenuBar extends JMenuBar implements ActionListener
         http.addActionListener(this);
         hp.addActionListener(this);
         raw.addActionListener(this);
-        nfsCon.addActionListener(this);
+       // nfsCon.addActionListener(this);
         spider.addActionListener(this);
         proxy.addActionListener(this);
         stdback.addActionListener(this);
         opts.addActionListener(this);
-        webdavCon.addActionListener(this);
+       // webdavCon.addActionListener(this);
         shell.addActionListener(this);
         nl.addActionListener(this);
 
         localFtpCon.addActionListener(this);
-        localSftpCon.addActionListener(this);
-        localSmbCon.addActionListener(this);
-        localNfsCon.addActionListener(this);
-        localWebdavCon.addActionListener(this);
+
         closeLocalCon.addActionListener(this);
         add.addActionListener(this);
         storePasswords.addActionListener(this);
@@ -229,26 +223,26 @@ public class AppMenuBar extends JMenuBar implements ActionListener
         ftp.add(resuming);
         ftp.add(ask);
         ftp.add(nl);
-        smb.add(smbThreads);
-        sftp.add(sftpThreads);
-        sftp.add(sshKeys);
-        security.add(askToDelete);
-        security.add(storePasswords);
+//        smb.add(smbThreads);
+//        sftp.add(sftpThreads);
+//        sftp.add(sshKeys);
+//        security.add(askToDelete);
+//        security.add(storePasswords);
+//
+//        cnn.add(loadCNN1);
+//        cnn.add(loadCNN2);
+//        cnn.add(loadCNN3);
+//
+//        rss.add(rssDisabled);
+//        rss.add(loadSlash);
+//        rss.add(cnn);
+//        rss.add(loadRss);
 
-        cnn.add(loadCNN1);
-        cnn.add(loadCNN2);
-        cnn.add(loadCNN3);
-
-        rss.add(rssDisabled);
-        rss.add(loadSlash);
-        rss.add(cnn);
-        rss.add(loadRss);
-
-        opt.add(security);
+        //opt.add(security);
         opt.addSeparator();
         opt.add(ftp);
-        opt.add(smb);
-        opt.add(sftp);
+       // opt.add(smb);
+      //  opt.add(sftp);
         opt.addSeparator();
         opt.add(proxy);
         opt.add(opts);
@@ -271,7 +265,7 @@ public class AppMenuBar extends JMenuBar implements ActionListener
         view.add(debug);
         view.add(disableLog);
         view.addSeparator();
-        view.add(rss);
+        //view.add(rss);
         view.addSeparator();
 
         info.add(readme);
@@ -431,30 +425,28 @@ public class AppMenuBar extends JMenuBar implements ActionListener
         x.setProtocol(pr);
         x.setDirectory(d);
 
-        //bookmarks
+ 
         current.add(x);
         marks.put(x.getLabel(), x);
         x.addActionListener(this);
     }
 
-    //*** Where changes to the file menu are made (iniitalization done here too)
+
     public void resetFileItems()
     {
         file.removeAll();
 
         file.add(ftpCon);
-        file.add(sftpCon);
-        file.add(smbCon);
-        file.add(nfsCon);
-        file.add(webdavCon);
+//        file.add(sftpCon);
+//        file.add(smbCon);
+//        file.add(nfsCon);
+//        file.add(webdavCon);
         file.addSeparator();
         file.add(close);
         file.addSeparator();
         file.addSeparator();
         file.add(localFtpCon);
-        file.add(localSftpCon);
-        file.add(localSmbCon);
-        file.add(localNfsCon);
+  
 
         //file.add(localWebdavCon); -> not yet
         file.addSeparator();
@@ -570,12 +562,12 @@ public class AppMenuBar extends JMenuBar implements ActionListener
 	            AddBookmarks a = new AddBookmarks(JFtp.statusP.jftp);
 	            a.update();
 	        }
-	        else if(e.getSource() == webdavCon)
-	        {
-	            WebdavHostChooser hc = new WebdavHostChooser();
-	            hc.toFront();
-	            hc.update();
-	        }
+//	        else if(e.getSource() == webdavCon)
+//	        {
+//	            WebdavHostChooser hc = new WebdavHostChooser();
+//	            hc.toFront();
+//	            hc.update();
+//	        }
 	        else if((e.getSource() == localFtpCon) && (!jftp.uiBlocked))
 	        {
 	            HostChooser hc = new HostChooser(null, true);
@@ -584,38 +576,7 @@ public class AppMenuBar extends JMenuBar implements ActionListener
 	            //hc.setModal(true);
 	            hc.update();
 	        }
-	        else if((e.getSource() == localSmbCon) && (!jftp.uiBlocked))
-	        {
-	            SmbHostChooser hc = new SmbHostChooser(null, true);
-	            hc.toFront();
-	
-	            //hc.setModal(true);
-	            hc.update();
-	        }
-	        else if((e.getSource() == localSftpCon) && (!jftp.uiBlocked))
-	        {
-	            SftpHostChooser hc = new SftpHostChooser(null, true);
-	            hc.toFront();
-	
-	            //hc.setModal(true);
-	            hc.update();
-	        }
-	        else if((e.getSource() == localNfsCon) && (!jftp.uiBlocked))
-	        {
-	            NfsHostChooser hc = new NfsHostChooser(null, true);
-	            hc.toFront();
-	
-	            //hc.setModal(true);
-	            hc.update();
-	        }
-	        else if((e.getSource() == localWebdavCon) && (!jftp.uiBlocked))
-	        {
-	            WebdavHostChooser hc = new WebdavHostChooser(null, true);
-	            hc.toFront();
-	
-	            //hc.setModal(true);
-	            hc.update();
-	        }
+
 	        else if(e.getSource() == closeLocalCon)
 	        {
 	            JFtp.statusP.jftp.closeCurrentLocalTab();
@@ -707,33 +668,33 @@ public class AppMenuBar extends JMenuBar implements ActionListener
 	            //hc.setModal(true);
 	            hc.update();
 	        }
-	        else if((e.getSource() == smbCon) && (!jftp.uiBlocked))
-	        {
-	            //jftp.safeDisconnect();
-	            SmbHostChooser hc = new SmbHostChooser();
-	            hc.toFront();
-	
-	            //hc.setModal(true);
-	            hc.update();
-	        }
-	        else if((e.getSource() == sftpCon) && (!jftp.uiBlocked))
-	        {
-	            //jftp.safeDisconnect();
-	            SftpHostChooser hc = new SftpHostChooser();
-	            hc.toFront();
-	
-	            //hc.setModal(true);
-	            hc.update();
-	        }
-	        else if((e.getSource() == nfsCon) && (!jftp.uiBlocked))
-	        {
-	            // jftp.safeDisconnect();
-	            NfsHostChooser hc = new NfsHostChooser();
-	            hc.toFront();
-	
-	            //hc.setModal(true);
-	            hc.update();
-	        }
+//	        else if((e.getSource() == smbCon) && (!jftp.uiBlocked))
+//	        {
+//	            //jftp.safeDisconnect();
+//	            SmbHostChooser hc = new SmbHostChooser();
+//	            hc.toFront();
+//	
+//	            //hc.setModal(true);
+//	            hc.update();
+//	        }
+//	        else if((e.getSource() == sftpCon) && (!jftp.uiBlocked))
+//	        {
+//	            //jftp.safeDisconnect();
+//	            SftpHostChooser hc = new SftpHostChooser();
+//	            hc.toFront();
+//	
+//	            //hc.setModal(true);
+//	            hc.update();
+//	        }
+//	        else if((e.getSource() == nfsCon) && (!jftp.uiBlocked))
+//	        {
+//	            // jftp.safeDisconnect();
+//	            NfsHostChooser hc = new NfsHostChooser();
+//	            hc.toFront();
+//	
+//	            //hc.setModal(true);
+//	            hc.update();
+//	        }
 	        else if(e.getSource() == resuming)
 	        {
 	            boolean res = resuming.getState();
@@ -1021,12 +982,12 @@ public class AppMenuBar extends JMenuBar implements ActionListener
         //*** set accelerators for the remote connection window
         ftpCon.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F,
                                                      ActionEvent.CTRL_MASK));
-        sftpCon.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S,
-                                                      ActionEvent.CTRL_MASK));
-        smbCon.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_L,
-                                                     ActionEvent.CTRL_MASK));
-        nfsCon.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N,
-                                                     ActionEvent.CTRL_MASK));
+//        sftpCon.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S,
+//                                                      ActionEvent.CTRL_MASK));
+//        smbCon.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_L,
+//                                                     ActionEvent.CTRL_MASK));
+//        nfsCon.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N,
+//                                                     ActionEvent.CTRL_MASK));
 
         //*** IMPORTANT NOTE: Adding an accelerator for disconnecting could
         //*** be something of a "gotcha" that we may not want
@@ -1055,9 +1016,6 @@ public class AppMenuBar extends JMenuBar implements ActionListener
         //*** as accelerators. So to quickly start an FTP connection in the local window,
         //*** the user can enter Alt+f+f, and Alt+f+s for SFTP,etc.
         localFtpCon.setMnemonic('F');
-        localSftpCon.setMnemonic('S');
-        localSmbCon.setMnemonic('L');
-        localNfsCon.setMnemonic('N');
 
         //localNfsCon.setMnemonic('N');
         closeLocalCon.setMnemonic('C');
